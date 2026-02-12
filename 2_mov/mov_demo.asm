@@ -21,3 +21,16 @@ _start:
     mov rax, 60
     mov rdi, 0
     syscall
+
+; Debugging instructions
+; nasm -f elf64 -g -o move_demo.o move_demo.asm   # -g adds debug symbols
+; ld -o move_demo move_demo.o
+; gdb ./move_demo
+
+; Inside GDB, type these commands:
+
+; break _start          # set a breakpoint at the start
+; run                   # run the program (it stops at _start)
+; layout asm            # show assembly view (optional, nice to have)
+; stepi                 # execute ONE instruction
+; info registers        # show ALL register values
