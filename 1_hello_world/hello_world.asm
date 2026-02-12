@@ -1,3 +1,5 @@
+; Simple Hello World program
+
 section .data  ; section for initialized data at program start
     msg db "Hello World!", 10  ; msg is a label for the address storing this text, db = define bytes
     msg_len equ $ - msg  ; defines a constant called msg_len to be current address ($) - address of msg (msg)
