@@ -32,6 +32,14 @@ section _start:
 
     ; The CPU updates these flags automatically, so no extra operations are needed
 
+    ;; cmp instruction
+    ;; Same as sub, but does not actually change the value of the registesr
+    ;; Only flags are changed
+
+    mov rax, 5
+    mov rbx, 5
+    cmp rax, rbx  ; sets ZF to 0
+
     mov rax, 60
     mov rdi, 0
     syscall
