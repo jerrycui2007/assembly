@@ -10,6 +10,10 @@ _start:
     jmp add
 
 add:
+    ; zero out registers
+    xor rax, rax
+    xor rbx, rbx
+    
     add rax, [numbers + rbx * 8]
     inc rbx
 
