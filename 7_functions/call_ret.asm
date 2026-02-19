@@ -12,6 +12,9 @@
 section .text
     global _start
 
+; Arguments always go in this order: rdi, rsi, rdx, rcx, r8, r9
+; Return value always goes in rax
+
 ; add_two: rax, rsi -> rax
 ; Returns the sum of two numbers and stores the result in rax
 ; Clobbers: rax
@@ -36,3 +39,7 @@ _start:
     mov rax, 60
     syscall
 
+; Caller-saved means: "if you (the caller) care about this value surviving across a function call, you must save it before calling and restore it after." 
+; The function you call is free to trash it. rax, rcx, rdx, rsi, rdi, r8–r11 are all caller-saved.
+; Callee-saved means: "if you (the function being called) want to use this register, you must save its value and restore it before returning." 
+; The caller is allowed to assume it's unchanged. rbx, rbp, r12–r15 are all callee-saved.
